@@ -1,11 +1,30 @@
 import React from 'react';
-import './app.css';
+import Header from '../header';
+import { Container, Typography } from '@material-ui/core';
+import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import './app.scss';
 
 const App = () => {
+
+    const theme = createMuiTheme({
+        palette: {
+            primary: {
+                main: '#2e3141'
+            },
+            secondary: {
+                main: '#45558D'
+            },
+
+        }
+    });
+
+
     return (
-        <main role="main" className="container">
-            <div className="test">test</div>
-        </main>
+        <ThemeProvider theme={theme}>
+            <Container >
+                <Header />
+            </Container>
+        </ThemeProvider>
     )
 };
 
