@@ -1,20 +1,18 @@
 import React from 'react';
-import { Toolbar, Typography, IconButton, AppBar, Button, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
+import { Toolbar, Typography, IconButton, AppBar, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import './header.scss';
 
 const useStyles = makeStyles(theme => ({
     root: {
-      flexGrow: 1,
-      backgroundColor: '#2e3141'
-    },
-    title: {
-      flexGrow: 1,
+      backgroundColor: theme.palette.secondary.main
     },
     menuButton: {
-        color: '#fff',
-        
+        color: theme.palette.common.white,
+    },
+    header: {
+        boxShadow: 'none'
     },
     search: {
         position: 'relative',
@@ -72,7 +70,7 @@ const Header = () => {
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="secondary">
+            <AppBar position="static" color="secondary" className={classes.header}>
                 <Toolbar>
                     
                     <Typography variant="h6" className={classes.title}>
