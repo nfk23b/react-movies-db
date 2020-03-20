@@ -4,8 +4,12 @@ import { Box, Typography, IconButton, makeStyles, } from '@material-ui/core';
 
 const useStyles = makeStyles(theme => ({
     root: {
-      backgroundColor: theme.palette.secondary.main,
-      color: theme.palette.common.white
+        backgroundColor: theme.palette.secondary.main,
+        color: theme.palette.common.white,
+        paddingTop: theme.spacing(2),
+        paddingBottom: theme.spacing(2),
+        paddingLeft: theme.spacing(3),
+        paddingRight: theme.spacing(3),
     },
 }));
 
@@ -15,7 +19,7 @@ const Footer = () => {
     return (
         <Box className={classes.root} color="secondary">
             <Typography >
-                Footer
+                nfk23b@gmail.com
             </Typography>
         </Box>
     )

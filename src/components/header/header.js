@@ -8,6 +8,9 @@ const useStyles = makeStyles(theme => ({
     root: {
       backgroundColor: theme.palette.secondary.main
     },
+    title: {
+      flexGrow: 1,
+    },
     menuButton: {
         color: theme.palette.common.white,
     },

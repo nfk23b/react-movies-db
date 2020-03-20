@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box, makeStyles } from '@material-ui/core';
-import ItemsList from '../items-list';
+import MoviesList from '../movies-list';
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -27,7 +27,7 @@ const Body = () => {
                 Use search input on top to find any movies you want
             </Typography>
 
-            <ItemsList />
+            <MoviesList />
         </Box>
     )
 }
