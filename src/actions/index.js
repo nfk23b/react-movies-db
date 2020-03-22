@@ -18,9 +18,9 @@ const moviesError = (error) => {
     }
 }
 
-const fetchMovies = (moviestoreService) => () => (dispatch) => {
+const fetchMovies = (moviesDbService) => (title) => (dispatch) => {
     dispatch(moviesRequested());
-    moviestoreService.getMovies()
+    moviesDbService.getMovies(title)
     .then((data) => dispatch(moviesLoaded(data)))
     .catch((err) => dispatch(moviesError(err)));
 };

@@ -1,4 +1,9 @@
 import React from 'react';
+import { fetchMovies } from '../../actions';
+import { connect } from 'react-redux';
+import { withMoviesDbService } from '../hoc';
+import { compose } from '../../utils';
+import { bindActionCreators } from 'redux';
 import { Toolbar, Typography, IconButton, AppBar, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
@@ -57,7 +62,7 @@ const useStyles = makeStyles(theme => ({
       },
 }));
 
-const Header = () => {
+const Header = (props) => {
     const classes = useStyles();
     const [auth, setAuth] = React.useState(true);
     const [anchorEl, setAnchorEl] = React.useState(null);
@@ -70,6 +75,15 @@ const Header = () => {
     const handleClose = () => {
       setAnchorEl(null);
     };
+
+    const inputChange = (e) => {
+        let query = e.target.value;
+
+        
+        if (e.key === "Enter" && query.length >= 3) {
+            props.fetchMovies(query);
+        }
+    }
 
     return (
         <div className={classes.root}>
@@ -89,6 +103,7 @@ const Header = () => {
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
+                        onKeyPress={inputChange}
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </div>
@@ -129,4 +144,17 @@ const Header = () => {
     )
 };
 
-export default Header;
+const mapStateToProps = ({  moviesList: { movies = []  } }) => {
+    return { movies }
+};
+
+const mapDispatchToProps = (dispatch, { moviesDbService }) => {
+    return bindActionCreators({
+        fetchMovies: fetchMovies(moviesDbService)
+    }, dispatch)
+};
+
+export default compose(
+    withMoviesDbService(),
+    connect(mapStateToProps, mapDispatchToProps)
+)(Header);

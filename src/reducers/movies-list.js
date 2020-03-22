@@ -1,8 +1,18 @@
+import image from '../assets/jay_and_silent_bob_reboot_canadian_movie_poster.jpg';
+
 const updateMoviesList = (state, action) => {
 
     if (state === undefined) {
         return {
-            movies: [],
+            movies: [
+                {
+                    id: 0,
+                    image: image,
+                    title: 'Jay and Silet Bob',
+                    author: 'Kevin Smith',
+                    year: 2019
+                }
+            ],
             loading: true,
             error: null,
         }
@@ -10,6 +20,7 @@ const updateMoviesList = (state, action) => {
 
     switch (action.type) {
         case 'FETCH_MOVIES_REQUEST':
+            console.log('FETCH_MOVIES_REQUEST');
             return {
                 movies: [],
                 loading: true,
@@ -17,6 +28,7 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_SUCCESS':
+            console.log('FETCH_MOVIES_SUCCESS');
             return {
                 movies: action.payload,
                 loading: false,
@@ -24,6 +36,7 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_FAILURE':
+            console.log(action.payload);
             return {
                 movies: [],
                 loading: false,

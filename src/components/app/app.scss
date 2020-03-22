@@ -1,5 +1,5 @@
 body {
-    height: 100vh;
+    height: 100%;
 }
 #root {
     min-height: 100%;
@@ -8,6 +8,6 @@ body {
     > div {
         display: flex;
         flex-direction: column;
-        height: 100vh;
+        min-height: 100vh;
     }
 }
