@@ -7,6 +7,8 @@ import { bindActionCreators } from 'redux';
 import { Toolbar, Typography, IconButton, AppBar, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import { Link } from 'react-router-dom'
+
 import './header.scss';
 
 const useStyles = makeStyles(theme => ({
@@ -15,6 +17,10 @@ const useStyles = makeStyles(theme => ({
     },
     title: {
       flexGrow: 1,
+    },
+    titleLink: {
+        color: theme.palette.common.white,
+        textDecoration: 'none'
     },
     menuButton: {
         color: theme.palette.common.white,
@@ -91,7 +97,9 @@ const Header = (props) => {
                 <Toolbar>
                     
                     <Typography variant="h6" className={classes.title}>
-                        React Movies DB
+                        <Link to="/" className={classes.titleLink}>
+                            React Movies DB
+                        </Link>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

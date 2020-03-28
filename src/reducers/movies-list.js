@@ -6,21 +6,21 @@ const updateMoviesList = (state, action) => {
         return {
             movies: [
                 {
-                    id: 0,
+                    id: 'tt6521876',
                     image: image,
                     title: 'Jay and Silet Bob',
                     author: 'Kevin Smith',
                     year: 2019
                 }
             ],
-            loading: true,
+            loading: false,
             error: null,
         }
     }
 
     switch (action.type) {
         case 'FETCH_MOVIES_REQUEST':
-            console.log('FETCH_MOVIES_REQUEST');
+            // console.log('FETCH_MOVIES_REQUEST');
             return {
                 movies: [],
                 loading: true,
@@ -28,7 +28,7 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_SUCCESS':
-            console.log('FETCH_MOVIES_SUCCESS');
+            // console.log('FETCH_MOVIES_SUCCESS');
             return {
                 movies: action.payload,
                 loading: false,
@@ -36,13 +36,13 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_FAILURE':
-            console.log(action.payload);
+            // console.log(action.payload);
             return {
                 movies: [],
                 loading: false,
                 error: action.payload
             };
-            
+
         default:
             return state.moviesList;
     }

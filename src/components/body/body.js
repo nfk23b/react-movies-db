@@ -1,6 +1,6 @@
-import React from 'react';
-import { Typography, Box, makeStyles } from '@material-ui/core';
-import MoviesList from '../movies-list';
+import React from "react";
+import { Typography, Box, makeStyles } from "@material-ui/core";
+import MoviesContainer from "../movies-container";
 
 const useStyles = makeStyles(theme => ({
     box: {
@@ -14,7 +14,6 @@ const useStyles = makeStyles(theme => ({
     }
 }));
 
-
 const Body = () => {
     const classes = useStyles();
 
@@ -27,9 +26,9 @@ const Body = () => {
                 Use search input on top to find any movies you want
             </Typography>
 
-            <MoviesList />
+            <MoviesContainer />
         </Box>
-    )
-}
+    );
+};
 
 export default Body;
