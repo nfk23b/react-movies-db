@@ -38,18 +38,6 @@ const movieInfoError = (error) => {
     }
 }
 
-const backToHomePage = (movies) => {
-    return {
-        type: 'SHOW_HOME_PAGE',
-        payload: movies
-    }
-}
-
-const showHomePage = (moviesDbService) => (title) => (dispatch) => {
-    dispatch(backToHomePage());
-    
-};
-
 const fetchMovies = (moviesDbService) => (title) => (dispatch) => {
     dispatch(moviesRequested());
     moviesDbService.getMovies(title)

@@ -1,13 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import ErrorIndicator from '../error-indicator';
-import Spinner from '../spinner';
 import { connect } from 'react-redux';
 import { withMoviesDbService } from '../hoc';
 import { fetchMovieInfo } from "../../actions";
 import { compose } from '../../utils';
 import { bindActionCreators } from 'redux';
-import { Box, Typography, List, ListItem, ListItemText, Divider } from "@material-ui/core";
+import { Box, Typography, List, ListItem } from "@material-ui/core";
 import { withStyles } from "@material-ui/styles";
 import { Link } from 'react-router-dom'
 import Skeleton from '@material-ui/lab/Skeleton';
@@ -77,14 +75,7 @@ class MoviesInfo extends Component {
     render() {
         const { movie: { Poster, ...rest }, classes, loading } = this.props;
         const movieData = Object.entries(rest);
-        // if (loading) {
-        //         return <Spinner />;
-        //     }
-            
-            // if (error) {
-                //     return <ErrorIndicator />;
-                // }
-                // console.log(this.props);
+        
         return (
             <Box >
                 <Typography >

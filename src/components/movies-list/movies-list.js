@@ -1,12 +1,7 @@
 import React, { Component } from "react";
-import ErrorIndicator from "../error-indicator";
-import Spinner from "../spinner";
-// import { fetchMovies } from '../../actions';
-import { fetchMovieInfo } from "../../actions";
 import { connect } from "react-redux";
 import { withMoviesDbService } from "../hoc";
 import { compose } from "../../utils";
-import { bindActionCreators } from "redux";
 import {
     GridList,
     GridListTile,

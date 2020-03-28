@@ -20,7 +20,6 @@ const updateMoviesList = (state, action) => {
 
     switch (action.type) {
         case 'FETCH_MOVIES_REQUEST':
-            // console.log('FETCH_MOVIES_REQUEST');
             return {
                 movies: [],
                 loading: true,
@@ -28,7 +27,6 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_SUCCESS':
-            // console.log('FETCH_MOVIES_SUCCESS');
             return {
                 movies: action.payload,
                 loading: false,
@@ -36,7 +34,6 @@ const updateMoviesList = (state, action) => {
             };
 
         case 'FETCH_MOVIES_FAILURE':
-            // console.log(action.payload);
             return {
                 movies: [],
                 loading: false,
