@@ -7,6 +7,7 @@ import { bindActionCreators } from 'redux';
 import { Toolbar, Typography, IconButton, AppBar, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
 import SearchIcon from '@material-ui/icons/Search';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import withWidth, { isWidthDown, isWidthUp } from '@material-ui/core/withWidth';
 import { Link } from 'react-router-dom'
 
 import './header.scss';
@@ -20,7 +21,8 @@ const useStyles = makeStyles(theme => ({
     },
     titleLink: {
         color: theme.palette.common.white,
-        textDecoration: 'none'
+        textDecoration: 'none',
+        marginRight: theme.spacing(3)
     },
     menuButton: {
         color: theme.palette.common.white,
@@ -36,7 +38,7 @@ const useStyles = makeStyles(theme => ({
           backgroundColor: fade(theme.palette.common.white, 0.25),
         },
         marginLeft: 0,
-        marginRight: 20,
+        marginRight: theme.spacing(1),
         width: '100%',
         [theme.breakpoints.up('sm')]: {
           marginLeft: theme.spacing(1),
@@ -98,7 +100,7 @@ const Header = (props) => {
                     
                     <Typography variant="h6" className={classes.title}>
                         <Link to="/" className={classes.titleLink}>
-                            React Movies DB
+                            {isWidthUp('sm', props.width) ? 'React Movies DB' : 'RMDB'}
                         </Link>
                     </Typography>
                     <div className={classes.search}>
@@ -115,7 +117,7 @@ const Header = (props) => {
                         inputProps={{ 'aria-label': 'search' }}
                         />
                     </div>
-                    {auth && (
+                    {/* {auth && (
                         <div>
                         <IconButton
                             aria-label="account of current user"
@@ -145,7 +147,7 @@ const Header = (props) => {
                             <MenuItem onClick={handleClose}>My account</MenuItem>
                         </Menu>
                         </div>
-                    )}
+                    )} */}
                 </Toolbar>
             </AppBar>
         </div>
@@ -163,6 +165,7 @@ const mapDispatchToProps = (dispatch, { moviesDbService }) => {
 };
 
 export default compose(
+    withWidth(),
     withMoviesDbService(),
     connect(mapStateToProps, mapDispatchToProps)
 )(Header);

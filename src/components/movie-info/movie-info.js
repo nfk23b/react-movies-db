@@ -27,7 +27,11 @@ const styles = theme => ({
     list: {
         color: theme.palette.common.white,
         paddingRight: theme.spacing(10),
-        width: '69%'
+        width: '69%',
+        [theme.breakpoints.down('sm')]: {
+            order: 1,
+            width: '100%'
+        },
     },
     listItem: {
         paddingLeft: 0,
@@ -37,7 +41,7 @@ const styles = theme => ({
         borderBottom: `1px solid ${theme.palette.common.white}`
     },
     listItemType: {
-        width: theme.spacing(12),
+        width: theme.spacing(14),
         fontWeight: 'bold',
         display: 'table'
     },
@@ -50,15 +54,41 @@ const styles = theme => ({
     details: {
         display: 'flex',
         marginTop: theme.spacing(3),
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+        },
     },
     poster: {
-        marginTop: theme.spacing(5)
+        marginTop: theme.spacing(5),
+        [theme.breakpoints.down('sm')]: {
+            order: 0,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginBottom: theme.spacing(3),
+        },
     },
     skeletonContainer: {
         marginTop: theme.spacing(5),
         display: 'flex',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        [theme.breakpoints.down('sm')]: {
+            flexDirection: 'column',
+        },
+    },
+    skeletonList: {
+        [theme.breakpoints.down('sm')]: {
+            order: 1,
+            width: '100% !important'
+        },
+    },
+    skeletonPoster: {
+        [theme.breakpoints.down('sm')]: {
+            order: 0,
+            marginLeft: 'auto',
+            marginRight: 'auto',
+            marginBottom: theme.spacing(3),
+        },
     }
 });
 
@@ -101,7 +131,7 @@ class MoviesInfo extends Component {
                         <img src={Poster} alt="Poster" />
                     </Box>
                 </Box>
-                : 
+                :
                 <Box className={classes.skeletonContainer}>
                     <Skeleton variant="rect" height={500} width={850} className={classes.skeletonList} />
                     <Skeleton variant="rect" height={500} width={300} className={classes.skeletonPoster} />
@@ -114,7 +144,6 @@ class MoviesInfo extends Component {
 }
 
 const mapStateToProps = ({
-    // moviesList: { movies },
     movieInfo: { movie, loading, ownProps }
 }) => {
     return { movie, loading, ownProps };
@@ -123,7 +152,6 @@ const mapStateToProps = ({
 const mapDispatchToProps = (dispatch, { moviesDbService }) => {
     return bindActionCreators(
         {
-            // fetchMovies: fetchMovies(moviesDbService),
             fetchMovieInfo: fetchMovieInfo(moviesDbService)
         },
         dispatch

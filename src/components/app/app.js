@@ -12,15 +12,24 @@ const App = () => {
     const theme = createMuiTheme({
         palette: {
             primary: {
-                main: '#2e3141'
+                main: '#4c5c96'
             },
             secondary: {
-                main: '#45558D'
+                main: '#2e3141'
             },
-            
+        },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 480,
+                xmd: 768,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+            }
         }
     });
-    
+    console.log(theme)
     return (
         <ThemeProvider theme={theme}>
             <Container >
