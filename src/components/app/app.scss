@@ -3,6 +3,7 @@ html {
 }
 body {
     height: 100%;
+    margin-left: calc(100vw - 100%);
 }
 #root {
     min-height: 100%;
