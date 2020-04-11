@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-movies-db/static/css/main.08958464.chunk.css",
+    "main.css": "/react-movies-db/static/css/main.928f23a5.chunk.css",
     "main.js": "/react-movies-db/static/js/main.b89b5767.chunk.js",
     "main.js.map": "/react-movies-db/static/js/main.b89b5767.chunk.js.map",
     "runtime-main.js": "/react-movies-db/static/js/runtime-main.47d23567.js",
@@ -9,10 +9,10 @@
     "static/js/2.83bd84f3.chunk.js": "/react-movies-db/static/js/2.83bd84f3.chunk.js",
     "static/js/2.83bd84f3.chunk.js.map": "/react-movies-db/static/js/2.83bd84f3.chunk.js.map",
     "index.html": "/react-movies-db/index.html",
-    "precache-manifest.8c90f3f557e76dac7efb19c9aa435e0c.js": "/react-movies-db/precache-manifest.8c90f3f557e76dac7efb19c9aa435e0c.js",
+    "precache-manifest.f6c2a633672db6ef0302d29076433745.js": "/react-movies-db/precache-manifest.f6c2a633672db6ef0302d29076433745.js",
     "service-worker.js": "/react-movies-db/service-worker.js",
     "static/css/2.764ccc25.chunk.css.map": "/react-movies-db/static/css/2.764ccc25.chunk.css.map",
-    "static/css/main.08958464.chunk.css.map": "/react-movies-db/static/css/main.08958464.chunk.css.map",
+    "static/css/main.928f23a5.chunk.css.map": "/react-movies-db/static/css/main.928f23a5.chunk.css.map",
     "static/js/2.83bd84f3.chunk.js.LICENSE.txt": "/react-movies-db/static/js/2.83bd84f3.chunk.js.LICENSE.txt",
     "static/media/jay_and_silent_bob_reboot_canadian_movie_poster.jpg": "/react-movies-db/static/media/jay_and_silent_bob_reboot_canadian_movie_poster.2ee1c9c8.jpg"
   },
@@ -20,7 +20,7 @@
     "static/js/runtime-main.47d23567.js",
     "static/css/2.764ccc25.chunk.css",
     "static/js/2.83bd84f3.chunk.js",
-    "static/css/main.08958464.chunk.css",
+    "static/css/main.928f23a5.chunk.css",
     "static/js/main.b89b5767.chunk.js"
   ]
 }
