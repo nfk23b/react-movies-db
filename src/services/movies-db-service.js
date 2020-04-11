@@ -38,11 +38,14 @@ export default class MoviesDbService {
     };
 
     _transformMovie = movies => {
+        const data = movies.totalResults;
+
         return movies.Search.map(({ Title, Year, imdbID, Poster }) => ({
             title: Title,
             year: Year,
             id: imdbID,
-            image: Poster
+            image: Poster,
+            total: data
         }));
     };
 }

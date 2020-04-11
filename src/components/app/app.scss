@@ -1,9 +1,11 @@
+html {
+    background-color: #58707c;
+}
 body {
     height: 100%;
 }
 #root {
     min-height: 100%;
-    background-color: #4c5c96;
 
     > div {
         display: flex;

@@ -10,7 +10,8 @@ const updateMoviesList = (state, action) => {
                     image: image,
                     title: 'Jay and Silet Bob',
                     author: 'Kevin Smith',
-                    year: 2019
+                    year: 2019,
+                    total: 1
                 }
             ],
             loading: false,

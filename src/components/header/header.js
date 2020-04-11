@@ -1,120 +1,133 @@
-import React from 'react';
-import { fetchMovies } from '../../actions';
-import { connect } from 'react-redux';
-import { withMoviesDbService } from '../hoc';
-import { compose } from '../../utils';
-import { bindActionCreators } from 'redux';
-import { Toolbar, Typography, IconButton, AppBar, makeStyles, fade, InputBase, Menu, MenuItem } from '@material-ui/core';
-import SearchIcon from '@material-ui/icons/Search';
-import AccountCircle from '@material-ui/icons/AccountCircle';
-import withWidth, { isWidthDown, isWidthUp } from '@material-ui/core/withWidth';
-import { Link } from 'react-router-dom'
+import React from "react";
+import { fetchMovies } from "../../actions";
+import { connect } from "react-redux";
+import { withMoviesDbService } from "../hoc";
+import { compose } from "../../utils";
+import { bindActionCreators } from "redux";
+import {
+    Toolbar,
+    Typography,
+    AppBar,
+    makeStyles,
+    fade,
+    InputBase,
+} from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
+import withWidth, { isWidthUp } from "@material-ui/core/withWidth";
+import { Link, useHistory } from "react-router-dom";
 
-import './header.scss';
+import "./header.scss";
 
-const useStyles = makeStyles(theme => ({
+const useStyles = makeStyles((theme) => ({
     root: {
-      backgroundColor: theme.palette.secondary.main
+        backgroundColor: theme.palette.secondary.main,
     },
     title: {
-      flexGrow: 1,
+        flexGrow: 1,
     },
     titleLink: {
         color: theme.palette.common.white,
-        textDecoration: 'none',
-        marginRight: theme.spacing(3)
+        textDecoration: "none",
+        marginRight: theme.spacing(3),
     },
     menuButton: {
         color: theme.palette.common.white,
     },
     header: {
-        boxShadow: 'none'
+        boxShadow: "none",
     },
     search: {
-        position: 'relative',
+        position: "relative",
         borderRadius: theme.shape.borderRadius,
         backgroundColor: fade(theme.palette.common.white, 0.15),
-        '&:hover': {
-          backgroundColor: fade(theme.palette.common.white, 0.25),
+        "&:hover": {
+            backgroundColor: fade(theme.palette.common.white, 0.25),
         },
         marginLeft: 0,
         marginRight: theme.spacing(1),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-          marginLeft: theme.spacing(1),
-          width: 'auto',
+        width: "100%",
+        [theme.breakpoints.up("sm")]: {
+            marginLeft: theme.spacing(1),
+            width: "auto",
         },
     },
     searchIcon: {
         width: theme.spacing(7),
-        height: '100%',
-        position: 'absolute',
-        pointerEvents: 'none',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
+        height: "100%",
+        position: "absolute",
+        pointerEvents: "none",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
     },
     inputRoot: {
-        color: 'inherit',
+        color: "inherit",
     },
     inputInput: {
         padding: theme.spacing(1, 1, 1, 7),
-        transition: theme.transitions.create('width'),
-        width: '100%',
-        [theme.breakpoints.up('sm')]: {
-          width: 120,
-          '&:focus': {
-            width: 200,
-          },
+        transition: theme.transitions.create("width"),
+        width: "100%",
+        [theme.breakpoints.up("sm")]: {
+            width: 120,
+            "&:focus": {
+                width: 200,
+            },
         },
-      },
+    },
 }));
 
 const Header = (props) => {
     const classes = useStyles();
-    const [auth, setAuth] = React.useState(true);
-    const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-  
-    const handleMenu = event => {
-      setAnchorEl(event.currentTarget);
-    };
-  
-    const handleClose = () => {
-      setAnchorEl(null);
-    };
+    // const [auth, setAuth] = React.useState(true);
+    // const [anchorEl, setAnchorEl] = React.useState(null);
+    // const open = Boolean(anchorEl);
+
+    // const handleMenu = (event) => {
+    //     setAnchorEl(event.currentTarget);
+    // };
+
+    // const handleClose = () => {
+    //     setAnchorEl(null);
+    // };
+
+    let history = useHistory();
 
     const inputChange = (e) => {
         let query = e.target.value;
 
-        
         if (e.key === "Enter" && query.length >= 3) {
+            history.push("/");
             props.fetchMovies(query);
         }
-    }
+    };
 
     return (
         <div className={classes.root}>
-            <AppBar position="static" color="secondary" className={classes.header}>
+            <AppBar
+                position="static"
+                color="secondary"
+                className={classes.header}
+            >
                 <Toolbar>
-                    
                     <Typography variant="h6" className={classes.title}>
                         <Link to="/" className={classes.titleLink}>
-                            {isWidthUp('sm', props.width) ? 'React Movies DB' : 'RMDB'}
+                            {isWidthUp("sm", props.width)
+                                ? "React Movies DB"
+                                : "RMDB"}
                         </Link>
                     </Typography>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>
-                        <SearchIcon />
+                            <SearchIcon />
                         </div>
                         <InputBase
-                        placeholder="Search…"
-                        classes={{
-                            root: classes.inputRoot,
-                            input: classes.inputInput,
-                        }}
-                        onKeyPress={inputChange}
-                        inputProps={{ 'aria-label': 'search' }}
+                            placeholder="Search…"
+                            classes={{
+                                root: classes.inputRoot,
+                                input: classes.inputInput,
+                            }}
+                            onKeyPress={inputChange}
+                            inputProps={{ "aria-label": "search" }}
                         />
                     </div>
                     {/* {auth && (
@@ -151,17 +164,20 @@ const Header = (props) => {
                 </Toolbar>
             </AppBar>
         </div>
-    )
+    );
 };
 
-const mapStateToProps = ({  moviesList: { movies = []  } }) => {
-    return { movies }
+const mapStateToProps = ({ moviesList: { movies = [] } }) => {
+    return { movies };
 };
 
 const mapDispatchToProps = (dispatch, { moviesDbService }) => {
-    return bindActionCreators({
-        fetchMovies: fetchMovies(moviesDbService)
-    }, dispatch)
+    return bindActionCreators(
+        {
+            fetchMovies: fetchMovies(moviesDbService),
+        },
+        dispatch
+    );
 };
 
 export default compose(
