@@ -1,27 +1,27 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "34ce9aaae0d0f802e769b468ef8250ae",
+    "revision": "fd0caa12505c0d7c8d82df9e8c235ed5",
     "url": "/react-movies-db/index.html"
   },
   {
-    "revision": "9141061986ad02af76da",
+    "revision": "63b9007b14e25277bc9f",
     "url": "/react-movies-db/static/css/2.764ccc25.chunk.css"
   },
   {
-    "revision": "8ee0a29bf23d60af428e",
-    "url": "/react-movies-db/static/css/main.ecc39bcf.chunk.css"
+    "revision": "5b11414e7df09dadc82e",
+    "url": "/react-movies-db/static/css/main.08958464.chunk.css"
   },
   {
-    "revision": "9141061986ad02af76da",
-    "url": "/react-movies-db/static/js/2.5206968b.chunk.js"
+    "revision": "63b9007b14e25277bc9f",
+    "url": "/react-movies-db/static/js/2.83bd84f3.chunk.js"
   },
   {
     "revision": "ac9fac6c8e755a8efecd01981adb88e6",
-    "url": "/react-movies-db/static/js/2.5206968b.chunk.js.LICENSE.txt"
+    "url": "/react-movies-db/static/js/2.83bd84f3.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8ee0a29bf23d60af428e",
-    "url": "/react-movies-db/static/js/main.f85b3728.chunk.js"
+    "revision": "5b11414e7df09dadc82e",
+    "url": "/react-movies-db/static/js/main.2fa1823c.chunk.js"
   },
   {
     "revision": "418ec8975bf656622927",
