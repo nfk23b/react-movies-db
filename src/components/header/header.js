@@ -96,7 +96,7 @@ const Header = (props) => {
         let query = e.target.value;
 
         if (e.key === "Enter" && query.length >= 3) {
-            history.push("/");
+            history.push("/react-movies-db/");
             props.fetchMovies(query);
         }
     };
