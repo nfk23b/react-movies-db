@@ -78,7 +78,7 @@ const MoviesList = ({ movies, loading, classes, width }) => {
                     {movies.map((tile) => (
                         <GridListTile key={tile.id}>
                             <img src={tile.image} alt={tile.title} />
-                            <Link to={`/movie/${tile.id}`}>
+                            <Link to={`/react-movies-db/movie/${tile.id}`}>
                                 <GridListTileBar
                                     title={tile.title}
                                     subtitle={<span>year: {tile.year}</span>}

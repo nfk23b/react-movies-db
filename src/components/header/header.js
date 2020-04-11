@@ -110,7 +110,10 @@ const Header = (props) => {
             >
                 <Toolbar>
                     <Typography variant="h6" className={classes.title}>
-                        <Link to="/" className={classes.titleLink}>
+                        <Link
+                            to="/react-movies-db/"
+                            className={classes.titleLink}
+                        >
                             {isWidthUp("sm", props.width)
                                 ? "React Movies DB"
                                 : "RMDB"}
